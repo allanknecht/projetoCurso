@@ -1,0 +1,66 @@
+/* --- Navegação --- */
+.navbar.navbar-expand-lg {
+  background-color: black !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+/* --- Jumbotron --- */
+#home-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.jumbotron {
+  background: url('raccoon.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 425px;
+  display: flex;
+  flex-direction: column;      /* Organiza os elementos na vertical */
+  justify-content: center;     /* Centraliza verticalmente */
+  text-align: center;          /* Centraliza o texto horizontalmente */
+}
+
+.jumbotron .btn {
+  width: auto; /* Impede o botão de ocupar toda a largura */
+  align-self: center; /* Alinha o botão ao centro */
+}
+
+.text-white {
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra no texto */
+}
+
+.btn-close {
+  width: 0.5rem;   /* Ajusta o tamanho do botão */
+  height: 0.5rem;  /* Ajusta a altura do botão */
+  padding: 0.25rem;  /* Reduz o preenchimento do botão */
+  font-size: 0.75rem; /* Diminui o tamanho da cruz do botão */
+}
+
+
+
+/* Sticky Footer Classes */
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgrey;
+}
+
