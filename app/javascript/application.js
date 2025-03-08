@@ -1,6 +1,5 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails";  // Importa o Turbo
-import "bootstrap";              // Importa o Bootstrap
 
 // Reinicia os componentes do Bootstrap após a navegação com Turbo
 document.addEventListener("turbo:load", function() {
