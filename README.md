@@ -38,3 +38,7 @@ Migrações
 Seeds
 
     rake db:seed
+
+Rails css
+
+    rails dartsass:install
