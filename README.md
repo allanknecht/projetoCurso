@@ -21,4 +21,24 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+## Setup
+
+### Docker Compose
+
+Para realizar o setup da aplicação
+
+    docker compose up
+
+Migrações
+
+    docker exec -it [container_id | container_name] bash
+
+    rake db:migrate
+
+Seeds
+
+    rake db:seed
+
+Rails css
+
+    rails dartsass:install

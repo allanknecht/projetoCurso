@@ -1,35 +1,35 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <%= render 'shared/errors' %> <%= form_with(model: article, class: "shadow
-      p-3 mb-3 bg-info bg-gradient rounded") do |form| %>
-
-      <div class="row justify-content-center">
-        <div class="col-10">
-          <div class="form-group row mt-2">
-            <%= form.label :title, class: "col-2 col-form-label text-light" %>
+      <%= render 'shared/errors' %> 
+        <%= form_with(model: article, class: "shadow p-3 mb-3 bg-info bg-gradient rounded") do |form| %>
+          <div class="row justify-content-center">
             <div class="col-10">
-              <%= form.text_field :title, class: "form-control shadow rounded",
-              placeholder: "Title of article" %>
+            
+              <div class="form-group row mt-2">
+                <%= form.label :title, class: "col-2 col-form-label text-light" %>
+                <div class="col-10">
+                  <%= form.text_field :title, class: "form-control shadow rounded",
+                  placeholder: "Title of article" %>
+                </div>
+              </div>
+
+              <div class="form-group row mt-2">
+                <%= form.label :description, class: "col-2 col-form-label
+                text-light" %>
+                <div class="col-10">
+                  <%= form.text_area :description, rows: 10, class: "form-control
+                  shadow rounded", placeholder: "Description of article" %>
+                </div>
+              </div>
+
+              <div class="form-group mt-2 row justify-content-center">
+                <%= form.submit class: "btn btn-outline-light btn-lg w-auto mt-4" %>
+              </div>
+
             </div>
           </div>
-
-          <div class="form-group row mt-2">
-            <%= form.label :description, class: "col-2 col-form-label
-            text-light" %>
-            <div class="col-10">
-              <%= form.text_area :description, rows: 10, class: "form-control
-              shadow rounded", placeholder: "Description of article" %>
-            </div>
-          </div>
-
-          <div class="form-group mt-2 row justify-content-center">
-            <%= form.submit class: "btn btn-outline-light btn-lg w-auto mt-4" %>
-          </div>
-
-          <% end %>
-        </div>
-      </div>
+        <% end %>
       <div>
         <%= link_to "Back to articles", articles_path, class: "text-info"%>
       </div>
