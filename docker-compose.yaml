@@ -1,14 +1,15 @@
-version: '3.8'
+version: "3.8"
 
 services:
   web:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile.dev
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
     working_dir: /myapp
     volumes:
       - ".:/myapp"
+      - "./storage:/myapp/storage" # Monta o diretório storage local no container
     ports:
       - "3000:3000"
     environment:

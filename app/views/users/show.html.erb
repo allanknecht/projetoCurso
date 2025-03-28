@@ -1,0 +1,11 @@
+<% content_for :title, "User Profile" %>
+
+<h1 class="text-center mt-4"><%= @user.username %>'s Profile</h1>
+
+<%= gravatar_for @user, size: 180 %>
+
+<h1 class="text-center mt-4">Articles</h1>
+
+<%= render 'articles/article' %>
+
+<br />
