@@ -10,6 +10,7 @@ services:
     volumes:
       - ".:/myapp"
       - "./storage:/myapp/storage" # Monta o diretório storage local no container
+      - bundle_cache:/usr/local/bundle # Add this line to persist gems
     ports:
       - "3000:3000"
     environment:
@@ -19,6 +20,7 @@ services:
 
 volumes:
   db_data:
+  bundle_cache: # Add this volume definition
 
 networks:
   myapp_network:

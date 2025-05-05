@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @articles = @user.articles
   end
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -31,7 +35,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to articles_path, notice: "User #{@user.username} was successfully updated." }
+        format.html { redirect_to @user, notice: "User #{@user.username} was successfully updated." }
         # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }

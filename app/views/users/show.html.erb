@@ -4,6 +4,11 @@
 
 <%= gravatar_for @user, size: 180 %>
 
+<div class="text-center mt-4">
+  <%= link_to "Edit your Profile", edit_user_path(@user), class: "btn
+  btn-outline-success" %>
+</div>
+
 <h1 class="text-center mt-4">Articles</h1>
 
 <%= render 'articles/article' %>

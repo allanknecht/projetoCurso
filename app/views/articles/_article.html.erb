@@ -4,7 +4,7 @@
     <div class="col-6 mt-4">
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header fst-italic">
-          by <%= article.user.username %>
+          by <%= link_to article.user.username, user_path(article.user) %>
         </div>
         <div class="card-body">
           <h5 class="card-title">
