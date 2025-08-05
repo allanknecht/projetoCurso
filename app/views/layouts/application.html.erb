@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for(:title) || "Projeto Curso" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= yield :head %>
 
-    <!-- Seu arquivo CSS personalizado (se necessário) -->
-    <%= stylesheet_link_tag 'application', 'custom', "data-turbo-track":
-    "reload" %> <%= javascript_importmap_tags %>
-    <!-- Este já carrega o importmap do Rails -->
-  </head>
+<head>
+  <title>
+    <%= content_for(:title) || "Projeto Curso" %>
+  </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+      <%= yield :head %>
 
-  <body class="d-flex flex-column">
-    <%= render 'layouts/navigation' %>
-    <div id="page-content"><%= render 'layouts/messages' %><%= yield %></div>
+        <!-- Seu arquivo CSS personalizado (se necessário) -->
+        <%= stylesheet_link_tag 'application', 'custom', "data-turbo-track": "reload" %>
+          <%= javascript_importmap_tags %>
+            <!-- Este já carrega o importmap do Rails -->
+</head>
+
+<body class="d-flex flex-column">
+  <%= render 'layouts/navigation' %>
+    <div id="page-content">
+      <%= render 'layouts/messages' %>
+        <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
-    <script type="module">
-      import "application";
-    </script>
-  </body>
+
+      <script type="module">
+        import "application";
+      </script>
+</body>
+
 </html>
