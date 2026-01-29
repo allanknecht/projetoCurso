@@ -35,3 +35,17 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Ignore byebug history
+.byebug_history
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
