@@ -1,11 +1,11 @@
 #!/bin/bash
-# Script para iniciar o Docker e abrir bash interativo
+# Script to start Docker and open interactive bash
 
-echo "Iniciando Docker Compose em background..."
+echo "Starting Docker Compose in background..."
 docker compose up -d
 
-echo "Aguardando container iniciar..."
+echo "Waiting for container to start..."
 sleep 3
 
-echo "Abrindo bash interativo..."
+echo "Opening interactive bash..."
 docker compose exec -it web bash
