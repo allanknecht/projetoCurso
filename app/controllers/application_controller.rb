@@ -18,4 +18,14 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def require_same_user
+    resource = @article || @user
+    owner = resource.respond_to?(:user) ? resource.user : resource
+
+    if current_user != owner
+      flash[:alert] = "You can only edit your own content"
+      redirect_to resource.respond_to?(:user) ? articles_path : resource
+    end
+  end
 end
