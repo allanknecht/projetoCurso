@@ -26,10 +26,12 @@
               <%= link_to "View profile", user, class:"btn
               btn-outline-success"%>
             </div>
+            <% if logged_in? && user == current_user %>
             <div class="p-1">
               <%= link_to "Edit profile", edit_user_path(user), class:"btn
               btn-outline-info" %>
             </div>
+            <% end %>
           </div>
         </div>
         <small> Joined <%= time_ago_in_words(user.created_at) %> ago</small>
