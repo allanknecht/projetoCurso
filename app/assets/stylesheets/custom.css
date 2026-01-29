@@ -1,4 +1,4 @@
-/* --- Navegação --- */
+/* --- Navigation --- */
 .navbar.navbar-expand-lg {
   background-color: black !important;
 }
@@ -29,26 +29,26 @@
   background-repeat: no-repeat;
   height: 425px;
   display: flex;
-  flex-direction: column;      /* Organiza os elementos na vertical */
-  justify-content: center;     /* Centraliza verticalmente */
-  text-align: center;          /* Centraliza o texto horizontalmente */
+  flex-direction: column;      /* Organizes elements vertically */
+  justify-content: center;     /* Centers vertically */
+  text-align: center;          /* Centers text horizontally */
 }
 
 .jumbotron .btn {
-  width: auto; /* Impede o botão de ocupar toda a largura */
-  align-self: center; /* Alinha o botão ao centro */
+  width: auto; /* Prevents button from taking full width */
+  align-self: center; /* Aligns button to center */
 }
 
 .text-white {
   color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra no texto */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow */
 }
 
 .btn-close {
-  width: 0.5rem;   /* Ajusta o tamanho do botão */
-  height: 0.5rem;  /* Ajusta a altura do botão */
-  padding: 0.25rem;  /* Reduz o preenchimento do botão */
-  font-size: 0.75rem; /* Diminui o tamanho da cruz do botão */
+  width: 0.5rem;   /* Adjusts button size */
+  height: 0.5rem;  /* Adjusts button height */
+  padding: 0.25rem;  /* Reduces button padding */
+  font-size: 0.75rem; /* Reduces button cross size */
 }
 
 

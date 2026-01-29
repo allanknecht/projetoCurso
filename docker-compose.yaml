@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: 
@@ -15,6 +13,8 @@ services:
       - RAILS_ENV=development
     networks:
       - myapp_network
+    stdin_open: true
+    tty: true
 
 volumes:
   db_data:
