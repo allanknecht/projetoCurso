@@ -13,7 +13,8 @@
       <%= yield :head %>
 
         <!-- Seu arquivo CSS personalizado (se necessário) -->
-        <%= stylesheet_link_tag 'application', 'custom', "data-turbo-track": "reload" %>
+        <%= stylesheet_link_tag 'application', "data-turbo-track": "reload" %>
+        <%= stylesheet_link_tag 'custom', "data-turbo-track": "reload" %>
           <%= javascript_importmap_tags %>
             <!-- Este já carrega o importmap do Rails -->
 </head>
