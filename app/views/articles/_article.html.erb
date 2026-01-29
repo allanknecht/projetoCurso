@@ -16,7 +16,7 @@
             <div class="p-1">
               <%= link_to "View", article, class: "btn btn-outline-success" %>
             </div>
-            <% if logged_in? && article.user == current_user %>
+            <% if logged_in? && (article.user == current_user || current_user.admin?) %>
               <div class="p-1">
                 <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
               </div>

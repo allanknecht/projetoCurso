@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
     resource = @article || @user
     owner = resource.respond_to?(:user) ? resource.user : resource
 
-    if current_user != owner
-      flash[:alert] = "You can only edit your own content"
+    if current_user != owner && !current_user.admin?
+      flash[:alert] = "You can only edit or delete your own content"
       redirect_to resource.respond_to?(:user) ? articles_path : resource
     end
   end

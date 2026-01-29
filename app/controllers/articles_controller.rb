@@ -55,13 +55,7 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-    require_user
-    if @article.user == current_user
-      @article.destroy!
-    else
-      flash[:alert] = "You can only delete your own articles"
-      redirect_to articles_path
-    end
+    @article.destroy!
 
     respond_to do |format|
       format.html { redirect_to articles_path, status: :see_other, notice: "Article was successfully destroyed." }
