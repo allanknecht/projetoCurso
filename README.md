@@ -1,6 +1,6 @@
 # Rails Blog App
 
-Uma aplicação de blog completa desenvolvida em Ruby on Rails 8.0, com sistema de autenticação, gerenciamento de artigos, perfis de usuários e funcionalidades de administrador.
+A complete blog application developed with Ruby on Rails 8.0, featuring authentication system, article management, user profiles, and administrator functionality.
 
 ## Ruby version
 
@@ -9,11 +9,11 @@ Uma aplicação de blog completa desenvolvida em Ruby on Rails 8.0, com sistema 
 
 ## System dependencies
 
-- **Docker** (versão 20.10 ou superior)
-- **Docker Compose** (versão 2.0 ou superior)
-- **Git** (para clonar o repositório)
+- **Docker** (version 20.10 or higher)
+- **Docker Compose** (version 2.0 or higher)
+- **Git** (to clone the repository)
 
-### Verificando as instalações
+### Checking installations
 
 ```bash
 docker --version
@@ -23,29 +23,29 @@ git --version
 
 ## Configuration
 
-### Variáveis de Ambiente
+### Environment Variables
 
-A aplicação usa configurações padrão do Rails. Para produção, você pode configurar variáveis de ambiente no arquivo `config/environments/production.rb` ou através de variáveis de ambiente do Docker.
+The application uses default Rails configurations. For production, you can configure environment variables in the `config/environments/production.rb` file or through Docker environment variables.
 
-### Configuração do Banco de Dados
+### Database Configuration
 
-O banco de dados está configurado para usar SQLite3 por padrão. As configurações estão em `config/database.yml`.
+The database is configured to use SQLite3 by default. Settings are in `config/database.yml`.
 
-- **Desenvolvimento**: `storage/development.sqlite3`
-- **Teste**: `storage/test.sqlite3`
-- **Produção**: Considere usar PostgreSQL ou MySQL
+- **Development**: `storage/development.sqlite3`
+- **Test**: `storage/test.sqlite3`
+- **Production**: Consider using PostgreSQL or MySQL
 
-### Configuração de Assets
+### Assets Configuration
 
-A aplicação usa DartSass para compilação de CSS. O CSS é compilado automaticamente quando o servidor inicia.
+The application uses DartSass for CSS compilation. CSS is compiled automatically when the server starts.
 
-Para instalar o DartSass:
+To install DartSass:
 
 ```bash
 docker compose exec web rails dartsass:install
 ```
 
-Para recompilar manualmente:
+To manually recompile:
 
 ```bash
 docker compose exec web rails dartsass:build
@@ -53,7 +53,7 @@ docker compose exec web rails dartsass:build
 
 ## Database creation
 
-O banco de dados é criado automaticamente quando você executa as migrações:
+The database is created automatically when you run migrations:
 
 ```bash
 docker compose exec web rails db:migrate
@@ -61,7 +61,7 @@ docker compose exec web rails db:migrate
 
 ## Database initialization
 
-Para popular o banco com dados iniciais:
+To populate the database with initial data:
 
 ```bash
 docker compose exec web rails db:seed
@@ -69,19 +69,19 @@ docker compose exec web rails db:seed
 
 ## How to run the test suite
 
-Para executar toda a suíte de testes:
+To run the entire test suite:
 
 ```bash
 docker compose exec web rails test
 ```
 
-Para executar testes de um arquivo específico:
+To run tests from a specific file:
 
 ```bash
 docker compose exec web rails test test/models/article_test.rb
 ```
 
-Para executar testes de sistema (end-to-end):
+To run system tests (end-to-end):
 
 ```bash
 docker compose exec web rails test:system
@@ -89,35 +89,35 @@ docker compose exec web rails test:system
 
 ## Services (job queues, cache servers, search engines, etc.)
 
-A aplicação usa os seguintes serviços:
+The application uses the following services:
 
-- **Solid Queue**: Para processamento de jobs em background
-- **Solid Cache**: Para cache de dados
-- **Solid Cable**: Para Action Cable (WebSockets)
+- **Solid Queue**: For background job processing
+- **Solid Cache**: For data caching
+- **Solid Cable**: For Action Cable (WebSockets)
 
-### Gerenciando os Serviços
+### Managing Services
 
-Os serviços são iniciados automaticamente com a aplicação através do Docker Compose.
+Services are started automatically with the application through Docker Compose.
 
 ## Deployment instructions
 
-### Setup com Docker Compose
+### Setup with Docker Compose
 
-Para realizar o setup da aplicação:
+To set up the application:
 
 ```bash
 docker compose up
 ```
 
-### Migrações
+### Migrations
 
-Execute as migrações do banco de dados:
+Run database migrations:
 
 ```bash
 docker compose exec web rails db:migrate
 ```
 
-Ou acesse o container e execute:
+Or access the container and run:
 
 ```bash
 docker compose exec web bash
@@ -126,77 +126,77 @@ rake db:migrate
 
 ### Seeds
 
-Para popular o banco com dados iniciais:
+To populate the database with initial data:
 
 ```bash
 docker compose exec web rails db:seed
 ```
 
-Ou dentro do container:
+Or inside the container:
 
 ```bash
 docker compose exec web bash
 rake db:seed
 ```
 
-### Deploy com Kamal
+### Deploy with Kamal
 
-A aplicação está configurada para deploy com Kamal. Para fazer deploy:
+The application is configured for deployment with Kamal. To deploy:
 
 ```bash
 kamal setup
 kamal deploy
 ```
 
-### Deploy Manual
+### Manual Deploy
 
-1. Configure as variáveis de ambiente de produção
-2. Execute as migrações: `rails db:migrate RAILS_ENV=production`
-3. Compile os assets: `rails assets:precompile`
-4. Inicie o servidor: `rails server -e production`
+1. Configure production environment variables
+2. Run migrations: `rails db:migrate RAILS_ENV=production`
+3. Compile assets: `rails assets:precompile`
+4. Start the server: `rails server -e production`
 
-## Setup Completo
+## Complete Setup
 
-### 1. Clone o repositório
+### 1. Clone the repository
 
 ```bash
-git clone <url-do-repositorio>
+git clone <repository-url>
 cd rails-blog-app
 ```
 
-### 2. Inicie os containers Docker
+### 2. Start Docker containers
 
 ```bash
 docker compose up
 ```
 
-Ou para executar em background:
+Or to run in background:
 
 ```bash
 docker compose up -d
 ```
 
-### 3. Execute as migrações
+### 3. Run migrations
 
-Em um novo terminal:
+In a new terminal:
 
 ```bash
 docker compose exec web rails db:migrate
 ```
 
-### 4. (Opcional) Carregue dados de exemplo
+### 4. (Optional) Load sample data
 
 ```bash
 docker compose exec web rails db:seed
 ```
 
-### 5. Acesse a aplicação
+### 5. Access the application
 
-Abra seu navegador em: `http://localhost:3000`
+Open your browser at: `http://localhost:3000`
 
-## Criando um Usuário Admin
+## Creating an Admin User
 
-Após a instalação, você pode criar um usuário admin através do console Rails:
+After installation, you can create an admin user through the Rails console:
 
 ```bash
 docker compose exec web rails console
@@ -212,31 +212,31 @@ User.create!(
 )
 ```
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - **Ruby on Rails** 8.0.1
-- **SQLite3** (banco de dados)
+- **SQLite3** (database)
 - **Bootstrap** 5.3 (UI framework)
 - **Turbo Rails** (SPA-like navigation)
 - **Stimulus** (JavaScript framework)
-- **will_paginate** (paginação)
-- **bcrypt** (criptografia de senhas)
-- **Docker** e **Docker Compose** (containerização)
-- **DartSass** (compilação de CSS)
+- **will_paginate** (pagination)
+- **bcrypt** (password encryption)
+- **Docker** and **Docker Compose** (containerization)
+- **DartSass** (CSS compilation)
 
-## Funcionalidades Principais
+## Main Features
 
-- ✅ Sistema completo de autenticação e autorização
-- ✅ CRUD completo de artigos
-- ✅ Gerenciamento de usuários e perfis
-- ✅ Sistema de administrador com permissões especiais
-- ✅ Paginação com will_paginate
-- ✅ Design responsivo com Bootstrap 5
-- ✅ Mensagens flash (sucesso/erro)
+- ✅ Complete authentication and authorization system
+- ✅ Full CRUD for articles
+- ✅ User and profile management
+- ✅ Administrator system with special permissions
+- ✅ Pagination with will_paginate
+- ✅ Responsive design with Bootstrap 5
+- ✅ Flash messages (success/error)
 
-## Comandos Úteis
+## Useful Commands
 
-### Console Rails
+### Rails Console
 ```bash
 docker compose exec web rails console
 ```
@@ -244,26 +244,26 @@ docker compose exec web rails console
 ### Logs
 ```bash
 docker compose logs web
-docker compose logs -f web  # seguir logs em tempo real
+docker compose logs -f web  # follow logs in real-time
 ```
 
-### Parar a aplicação
+### Stop the application
 ```bash
 docker compose down
 ```
 
-### Rebuild dos containers
+### Rebuild containers
 ```bash
 docker compose down
 docker compose up --build
 ```
 
-### Reset do banco de dados
+### Reset database
 ```bash
 docker compose exec web rails db:reset
 ```
 
 ---
 
-**Versão:** 1.0.0  
-**Última atualização:** Janeiro 2026
+**Version:** 1.0.0  
+**Last update:** January 2026

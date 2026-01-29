@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     resource = @article || @user
     return unless resource
 
-    # Admins podem editar/deletar qualquer conteúdo
+    # Admins can edit/delete any content
     return if current_user.admin?
 
     owner = resource.respond_to?(:user) ? resource.user : resource
