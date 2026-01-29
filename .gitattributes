@@ -7,3 +7,16 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 config/credentials/*.yml.enc diff=rails_credentials
 config/credentials.yml.enc diff=rails_credentials
+
+# Ensure bin scripts are executable
+bin/brakeman text eol=lf
+bin/bundle text eol=lf
+bin/docker-entrypoint text eol=lf
+bin/importmap text eol=lf
+bin/jobs text eol=lf
+bin/kamal text eol=lf
+bin/rails text eol=lf
+bin/rake text eol=lf
+bin/rubocop text eol=lf
+bin/setup text eol=lf
+bin/thrust text eol=lf
