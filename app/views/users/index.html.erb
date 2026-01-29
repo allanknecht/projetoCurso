@@ -35,7 +35,7 @@
               <% end %>
               <% if current_user.admin? %>
               <div class="p-1">
-                <%= link_to "Delete user", user, class:"btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this user and all their articles?" } %>
+                <%= button_to "Delete user", user, method: :delete, data: { turbo_confirm: "Are you sure you want to delete this user and all their articles?" }, class: "btn btn-outline-danger" %>
               </div>
               <% end %>
             <% end %>

@@ -6,8 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      flash[:notice] = "Logged in successfully"
-      redirect_to user
+      redirect_to user, notice: "Logged in successfully"
     else
       flash.now[:alert] = "There was something wrong with your login details"
       render "new", status: :unprocessable_entity
@@ -16,7 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Logged out successfully"
-    redirect_to root_path
+    redirect_to root_path, notice: "Logged out successfully"
   end
 end

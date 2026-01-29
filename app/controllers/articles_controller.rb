@@ -13,18 +13,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    require_user
     @article = Article.new
   end
 
   # GET /articles/1/edit
   def edit
-    require_user
   end
 
   # POST /articles or /articles.json
   def create
-    require_user
     @article = Article.new(article_params)
     @article.user = current_user
 
@@ -41,7 +38,6 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
-    require_user
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: "Article was successfully updated." }

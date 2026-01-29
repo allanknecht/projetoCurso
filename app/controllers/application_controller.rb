@@ -20,10 +20,17 @@ class ApplicationController < ActionController::Base
   end
 
   def require_same_user
+    return unless logged_in?
+
     resource = @article || @user
+    return unless resource
+
+    # Admins podem editar/deletar qualquer conteúdo
+    return if current_user.admin?
+
     owner = resource.respond_to?(:user) ? resource.user : resource
 
-    if current_user != owner && !current_user.admin?
+    if current_user != owner
       flash[:alert] = "You can only edit or delete your own content"
       redirect_to resource.respond_to?(:user) ? articles_path : resource
     end

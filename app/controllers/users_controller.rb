@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
+  def show
+    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
+  end
+
   def new
     @user = User.new
   end
@@ -16,21 +20,14 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to articles_path, notice: "User #{@user.username} was successfully created." }
         format.json { render :show, status: :created, location: @user }
-        session[:user_id] = @user.id
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def destroy
-    @user.destroy
-    session[:user_id] = nil if @user == current_user
-    flash[:notice] = "Account and all associated articles successfully deleted"
-    redirect_to articles_path
   end
 
   def edit
@@ -40,16 +37,22 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to articles_path, notice: "User #{@user.username} was successfully updated." }
-        # format.json { render :show, status: :ok, location: @user }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def show
-    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
+  def destroy
+    @user.destroy
+    session[:user_id] = nil if @user == current_user
+
+    respond_to do |format|
+      format.html { redirect_to @user == current_user ? root_path : users_path, status: :see_other, notice: "Account and all associated articles successfully deleted" }
+      format.json { head :no_content }
+    end
   end
 
   private
