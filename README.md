@@ -263,7 +263,3 @@ docker compose up --build
 docker compose exec web rails db:reset
 ```
 
----
-
-**Version:** 1.0.0  
-**Last update:** January 2026
