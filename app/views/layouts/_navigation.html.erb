@@ -21,6 +21,17 @@
             <li><%= link_to "View articles", articles_path, class: "dropdown-item" %></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu">
+            <% if logged_in? && current_user.admin? %>
+              <li><%= link_to "Create new category", new_category_path, class: "dropdown-item" %></li>
+            <% end %>
+            <li><%= link_to "View Categories", categories_path, class: "dropdown-item" %></li>
+          </ul>
+        </li>
 
         <% if logged_in? %>
           <li class="nav-item dropdown">
@@ -40,8 +51,10 @@
             </ul>
           </li>
         <li class="nav-item">
-          <%= link_to 'Log out', logout_path, class: "nav-link", data: { turbo_method: :delete } %>
-      </li>
+          <%= form_with url: logout_path, method: :delete, local: true, style: "display: inline;" do |f| %>
+            <%= f.submit "Log out", class: "nav-link btn btn-link", style: "border: none; background: none; padding: 0.5rem 1rem; text-decoration: none; color: inherit; width: 100%; text-align: left;" %>
+          <% end %>
+        </li>
         <% else %>
         <li class="nav-item">
           <%= link_to 'Log in', login_path, class: "nav-link" %>

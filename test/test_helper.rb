@@ -12,4 +12,16 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
   end
+
+  def sign_in_as(user)
+    post login_path, params: { session: { email: user.email, password: "password123" } }
+  end
+end
+
+module ActionDispatch
+  class IntegrationTest
+    def login_as(user)
+      post login_path, params: { session: { email: user.email, password: "password123" } }
+    end
+  end
 end

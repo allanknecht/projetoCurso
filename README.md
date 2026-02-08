@@ -228,11 +228,13 @@ User.create!(
 
 - ✅ Complete authentication and authorization system
 - ✅ Full CRUD for articles
+- ✅ Category management (admin only)
 - ✅ User and profile management
 - ✅ Administrator system with special permissions
 - ✅ Pagination with will_paginate
 - ✅ Responsive design with Bootstrap 5
 - ✅ Flash messages (success/error)
+- ✅ Session management with secure logout
 
 ## Useful Commands
 
